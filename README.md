@@ -52,6 +52,14 @@ const geistMono = Geist_Mono({
 });
 ```
 2. 查看源码下layout 和 page之间的一个关系。
+3. 这个项目的特点是说服务可以集成到个人的项目里面？
+4. 这个项目使用了preact是为了照顾不同的前端框架？ 
+5. 上传的逻辑由sass的provider提供，已封装成package给你用 
+6. 这个项目要考虑的就是UX + DX . UX 是用户体验，DX是开发者体验。UX针对的是客户，就是他们怎么集成到他们的网站中， DX是我们自己开发的时候，我们自己的开发体验要好 
+7. preact的优势是它的大小，只占了3kb的一个大小， 
+8. TRPC, 是一个对typescript非常友好的一个开发的库
+9. UI组件库用的是Radix + shadcn
+10. uppy -一个讲图片上传的组件库。 因为自己上传会用到s3, 比较麻烦
 
 # learned
 1. @nav 这里的parallel route 是指外面路由的，如果@nav下对应相同的路由名有东西那就会显示， 没有的话就走default.tsx, 所以default.tsx一定是需要的

@@ -1,8 +1,9 @@
 import Link from "next/link";
+import { Button } from "@/components/Button";
 export default function A() {
   return (
     <div>
-      <h1>A <Link href="/b">to B</Link></h1>
+     <Button variant={'outline'} size={'lg'}>Click me</Button>
     </div>
   );
 }

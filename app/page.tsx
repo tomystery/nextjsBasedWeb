@@ -1,11 +1,16 @@
-
+import { Input } from "@/components/Input";
+import { Textarea } from "@/components/Textarea";
+import { Button } from "@/components/Button";
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        root/layout
-      </main>
+    <div className="h-screen flex justify-center items-center ">
+      <form className="flex flex-col gap-4">
+        <h1 className='text-center'>create app</h1>
+        <Input placeholder="App name" />
+        <Textarea name="description" placeholder="Description" />
+        <Button type="submit">Click me</Button>
+      </form>
     </div>
   );
 }
