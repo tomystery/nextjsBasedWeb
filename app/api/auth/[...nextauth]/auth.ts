@@ -3,11 +3,12 @@ import GoogleProvider from "next-auth/providers/google";
 import GithubProvider from "next-auth/providers/github";
 import { DrizzleAdapter } from "@auth/drizzle-adapter";
 import {db} from "@/server/db/db";
+
 // 如果保留之前的凭证登录，也可以继续留着：
 import CredentialsProvider from "next-auth/providers/credentials";
 
 const authOptions: NextAuthOptions = {
-  // adapter: DrizzleAdapter(db),
+ adapter: DrizzleAdapter(db),
   providers: [
     // 1. Google 登录
     GoogleProvider({
