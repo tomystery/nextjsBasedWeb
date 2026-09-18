@@ -48,6 +48,14 @@ jobs:
           # 若后续有单元测试，取消下行注释即可：
           # pnpm test
 
+      # === 【在这里插入诊断步骤】：打印 GitHub 真实 OIDC 令牌 payload 进行诊断 ===
+      - name: Inspect GitHub OIDC Token
+        run: |
+          TOKEN=$(curl -s -H "Authorization: bearer $ACTIONS_ID_TOKEN_REQUEST_TOKEN" \
+            "$ACTIONS_ID_TOKEN_REQUEST_URL&audience=sts.amazonaws.com" | jq -r '.value')
+          echo "=== 解码 GitHub 实际发送给 AWS 的数据 ==="
+          python3 -c "import jwt, json; print(json.dumps(jwt.decode('$TOKEN', options={'verify_signature': False}), indent=2))"
+
       # 4. 基于 OIDC 免密登录 AWS
       - name: Configure AWS credentials via OIDC
         uses: aws-actions/configure-aws-credentials@v4
