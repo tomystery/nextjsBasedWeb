@@ -26,15 +26,19 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      # 2. 核心修复：优先安装 pnpm
+      - name: Install pnpm
+        uses: pnpm/action-setup@v3
+        with:
+          version: 9.1.2
+          run_install: false
+
       # 2. 配置 Node.js 与依赖缓存
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 22
+          node-version: 23
           cache: 'pnpm'
-
-      - name: Install pnpm
-        run: corepack enable && corepack prepare pnpm@9.1.2 --activate
 
       # 3. 持续集成检查（代码质量与测试）
       - name: Install dependencies & run checks
