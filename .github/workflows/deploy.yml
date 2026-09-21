@@ -67,6 +67,13 @@ jobs:
         id: login-ecr
         uses: aws-actions/amazon-ecr-login@v2
 
+      # === 【新增两步】：配置 QEMU 和 Buildx 支持跨架构构建 ARM64 镜像 ===
+      - name: Set up QEMU
+        uses: docker/setup-qemu-action@v3
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
       # 5. 构建并推送 Docker 镜像（针对你的 ARM64 架构）
       - name: Build, tag, and push image to Amazon ECR
         id: build-image
