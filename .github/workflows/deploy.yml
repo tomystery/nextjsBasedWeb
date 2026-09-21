@@ -12,9 +12,9 @@ permissions:
 env:
   AWS_REGION: ap-southeast-2 # 悉尼节点（如奥克兰则填 ap-southeast-6）
   ECR_REPOSITORY: nextjs/test-image-sass # 你的 ECR 仓库名
-  ECS_SERVICE: nextjs-image-sass-service # 你的 ECS 服务名称
+  ECS_SERVICE: nextjs-image-sass-service-4rh6qzo9 # 你的 ECS 服务名称
   ECS_CLUSTER: sass-image # 你的 ECS 集群名称
-  CONTAINER_NAME: nextjs-image-sass # 任务定义中的容器名称
+  CONTAINER_NAME: Main # 任务定义中的容器名称
   ECS_TASK_FAMILY: nextjs-image-sass
 
 jobs:
